@@ -18,7 +18,7 @@ module.exports = {
     });
   },
 
-  updateOne: (table, setObject, setValue, whereObj) => {
+  updateOne: (table, setObject, whereObj, cb) => {
     setColumn = Object.keys(setObject)[0];
     setValue = setObject[setColumn];
 
@@ -31,7 +31,7 @@ module.exports = {
       [table, setColumn, setValue, whereColumn, whereValue],
       function(err, result) {
         if (err) throw err;
-        console.log(result);
+        cb(result);
       }
     );
   }
