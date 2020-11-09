@@ -1,12 +1,9 @@
 -- Initial setup to create / reset database
-DROP DATABASE IF EXISTS burgers_db;
-CREATE DATABASE burgers_db;
-USE burgers.db;
+DROP TABLE IF EXISTS burgers;
 
 -- Create the burgers table
 CREATE TABLE burgers (
-	id INT AUTO_INCREMENT,
+	id SERIAL PRIMARY KEY,
 	burger_name VARCHAR(64),
-    devoured BOOLEAN,
-	PRIMARY KEY (id)
+    devoured BOOLEAN
 );

@@ -1,0 +1,18 @@
+{
+    "development": {
+      "user": "postgres",
+      "password": "password",
+      "host": "localhost",
+      "port": 5432,
+      "database": "burgers_db"
+    },
+    "test": {
+      "user": "root",
+      "password": "password",
+      "database": "database_test",
+      "host": "127.0.0.1"
+    },
+    "production": {
+      "use_env_variable": "DATABASE_URL"
+    }
+  }

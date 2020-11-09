@@ -20,11 +20,22 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Adds routes
-const routes = require("./controllers/burger_controller.js");
-app.use(routes);
 
-// Start our server and print to server when it has started
-app.listen(PORT, function() {
-  console.log("Server listening on: http://localhost:" + PORT);
+const connection = require("./config/connection");
+
+// Connect to our database
+connection.connect((err, response) => {
+  if (err) {
+    return console.log(err);
+  }
+  console.log("connected as id " + response.processID);
+
+  // Adds routes
+  const routes = require("./controllers/burger_controller.js")(connection);
+  app.use(routes);
+
+  // Start our server and print to server when it has started
+  app.listen(PORT, function() {
+    console.log("Server listening on: http://localhost:" + PORT);
+  });
 });

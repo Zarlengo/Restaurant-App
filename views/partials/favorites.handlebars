@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/stylesheets/favorites.css">
+<aside>
+    <h4>Favorites</h4>
+    {{#if burgers}}
+    <ul class="favorite-list">
+        {{#each burgers}}
+        <li class="favorite-item">
+            <figure>
+                <img src={{this.src}} alt={{this.alt}}>
+                <figcaption>
+                    {{this.burger_name}}
+                </figcaption>
+            </figure>
+        </li>
+        {{/each}}
+    </ul> 
+    {{/if}}
+</aside>
