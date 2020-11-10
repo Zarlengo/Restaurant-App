@@ -21,6 +21,7 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+require(path.join(__dirname, '/db/seed'));
 
 const connection = require("./config/connection");
 
