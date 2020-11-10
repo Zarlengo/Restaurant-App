@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-console.log(process.env.NODE_ENV);
+console.log(process.env.NODE_ENV || "development");
 
 const connectionObject = require('./config.json')[process.env.NODE_ENV || "development"];
 
