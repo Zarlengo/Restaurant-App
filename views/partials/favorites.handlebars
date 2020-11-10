@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/stylesheets/favorites.css">
+<link rel="stylesheet" href="/assets/css/favorites.css">
 <aside>
     <h4>Favorites</h4>
     {{#if burgers}}
@@ -6,7 +6,7 @@
         {{#each burgers}}
         <li class="favorite-item">
             <figure>
-                <img src={{this.src}} alt={{this.alt}}>
+                <img class="favorite-img" src={{this.src}} alt={{this.burger_name}} title={{this.src}}>
                 <figcaption>
                     {{this.burger_name}}
                 </figcaption>

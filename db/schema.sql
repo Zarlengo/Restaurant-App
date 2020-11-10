@@ -4,6 +4,8 @@ DROP TABLE IF EXISTS burgers;
 -- Create the burgers table
 CREATE TABLE burgers (
 	id SERIAL PRIMARY KEY,
-	burger_name VARCHAR(64),
-    devoured BOOLEAN
+	burger_name VARCHAR(128),
+    devoured BOOLEAN,
+	src VARCHAR(128),
+	title VARCHAR(128)
 );
