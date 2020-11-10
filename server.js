@@ -11,7 +11,8 @@ var PORT = process.env.PORT || 8080;
 
 // Sets the public folder for files to be accessed within the app
 const path = require("path");
-app.use("/public", express.static(path.join(__dirname, 'public')));
+// app.use("/public", express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Coding to json
 app.use(express.urlencoded({extended: true}));
