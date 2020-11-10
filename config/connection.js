@@ -1,8 +1,12 @@
 const { Client } = require('pg');
-console.log(process.env.NODE_ENV || "development");
+const env = process.env.NODE_ENV || "development";
+const config = require(__dirname + "./config.json")[env];
 
-const connectionObject = require('./config.json')[process.env.NODE_ENV || "development"];
 
-console.log(connectionObject);
-const client = new Client(connectionObject);
-module.exports = client;
+// Checks if in production 
+if (config.use_env_variable) {
+    const connectionObject = process.env[config.use_env_variable];
+} else {
+    const connectionObject = config;
+}
+module.exports = new Client(connectionObject);
