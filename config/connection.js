@@ -1,4 +1,4 @@
-const { Client, Pool } = require('pg');
+const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
@@ -16,16 +16,15 @@ if (config.use_env_variable) {
 const schema = fs.readFileSync(path.resolve(__dirname + '/../db/schema.sql'), 'utf8');
 const seed = fs.readFileSync(path.resolve(__dirname + '/../db/seeds.sql'), 'utf8');
 
-const pool = new Pool(connectionObject);
+const client = new Client(connectionObject);
 
-pool.query(schema, (error, response) => {
+client.query(schema, (error, response) => {
     if (error) console.log(error);
-    pool.query(seed, (error, response) => {
+    client.query(seed, (error, response) => {
         if (error) console.log(error);
         console.log("Seed complete");
-        pool.end();
     });
 });
 
 
-module.exports = new Client(connectionObject);
+module.exports = client;
