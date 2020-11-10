@@ -16,15 +16,16 @@ if (config.use_env_variable) {
 const schema = fs.readFileSync(path.resolve(__dirname + '/../db/schema.sql'), 'utf8');
 const seed = fs.readFileSync(path.resolve(__dirname + '/../db/seeds.sql'), 'utf8');
 
-const client = new Client(connectionObject);
+const pool = new Pool(connectionObject);
 
-client.query(schema, (error, response) => {
+pool.query(schema, (error, response) => {
     if (error) console.log(error);
-    client.query(seed, (error, response) => {
+    pool.query(seed, (error, response) => {
         if (error) console.log(error);
         console.log("Seed complete");
+        pool.end();
     });
 });
 
 
-module.exports = client;
+module.exports = new Client(connectionObject);
