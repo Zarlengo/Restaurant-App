@@ -1,24 +1,36 @@
 module.exports = (client) => {
 var orm = require("../config/orm.js")(client);
 
-  var burger = {
-    all: function(cb) {
-      orm.selectAll("burgers", function(res) {
-        cb(res);
-      });
+  return  {
+    burger: {
+      all: (cb) => {
+        orm.selectAll("burgers", (res) => {
+          cb(res);
+        });
+      },
+      // The variables cols and vals are arrays.
+      create: (cols, vals, id, cb) => {
+        orm.insertOne("burgers", cols, vals, id, (res) => {
+          cb(res);
+        });
+      },
+      update: (objColVals, condition, cb) => {
+        orm.updateOne("burgers", objColVals, condition, (res) => {
+          cb(res);
+        });
+      }
     },
-    // The variables cols and vals are arrays.
-    create: function(cols, vals, cb) {
-      orm.insertOne("burgers", cols, vals, function(res) {
-        cb(res);
-      });
-    },
-    update: function(objColVals, condition, cb) {
-      orm.updateOne("burgers", objColVals, condition, function(res) {
-        cb(res);
-      });
+    menu: {
+      all: (cb) => {
+        orm.selectAll("menu", (res) => {
+          cb(res);
+        });
+      },
+      findById: (id, cb) => {
+        orm.findById("menu", "menu_id", id, (res) => {
+          cb(res);
+        });
+      }
     }
-  };
-
-  return burger;
+  }
 }

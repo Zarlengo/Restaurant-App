@@ -9,9 +9,20 @@ module.exports = (connection) => {
       });
       
     },
+    
+    findById: (tableInput, id_name, id_value, cb) => {
+      const queryString = `SELECT * FROM ${ tableInput } WHERE ${ id_name } = ${ id_value }`;
+    
+      connection.query(queryString, (err, result) => {
+        if (err) throw err;
+        cb(result);
+      });
+      
+    },
 
-    insertOne: (table, whereToInsert, whatToInsert, cb) => {
-      const queryString = `INSERT INTO ${ table } (${ whereToInsert }) VALUES (${ whatToInsert })`;
+    insertOne: (table, whereToInsert, whatToInsert, table_id, cb) => {
+      const queryString = `INSERT INTO ${ table } ("${ whereToInsert.join('", "')}") VALUES (${ whatToInsert.join(", ") }) RETURNING "${ table_id }"`;
+      console.log(queryString);
       connection.query(queryString, (err, result) => {
         if (err) throw err;
         cb(result);

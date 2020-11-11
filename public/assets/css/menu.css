@@ -1,0 +1,32 @@
+.menu-img {
+    height: 128px;
+    width: 128px;
+    margin: auto;
+    display: block;
+}
+
+.menu-item {
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: rgb(206, 255, 255);
+    padding: 5px;
+}
+
+.menu-list {
+    list-style-type: none;
+    margin: auto;
+}
+
+.div-title {
+    text-align: center;
+}
+
+.menu-caption {
+    text-align:center;
+}
+
+.menu-button {
+    float: right;
+    padding: 2px 15px;
+    font-size: medium;
+}

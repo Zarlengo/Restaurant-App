@@ -2,31 +2,37 @@ module.exports = (client) => {
     const Express = require("express");
     const router = Express.Router();
     // Import the database settings
-    const burgers = require("../models/burger.js")(client);
+    const db = require("../models/burger.js")(client);
 
-    router.get("/", (req, res) => {
-        burgers.all(data => {
-            res.render("index", {burgers: data.rows});
+    router.get("/", (_req, res) => {
+        db.burger.all(burger_data => {
+            db.menu.all(menu_data => {
+                // Delete placeholder for handlebars
+                menu_data.rows.shift();
+                res.render("index", {menu: menu_data.rows, burger: burger_data.rows});
+            });
         });
     });
 
-    router.get("/api/burger", (req, res) => {
-        burgers.all(data => {
+    router.get("/api/burger", (_req, res) => {
+        db.burger.all(data => {
             res.json({burgers: data.rows});
         });
     });
 
     router.post("/api/burger", (req, res) => {
-        burgers.create(
-            ["burger_name","devoured"],
-            [`'${ req.body.burger_name }'`, req.body.devoured],
+        db.burger.create(
+            ["burger_name","devoured", "menu_id"],
+            [`'${ req.body.burger_name }'`, false, 1],
+            "burger_id",
             result => {
-                res.json({id: result.insertId})
-            });
+                res.json({id: result.rows[0].burger_id})
+            }
+        );
     });
 
     router.put("/api/burger/:id", (req, res) => {
-        burgers.update({
+        db.burger.update({
             devoured: req.body.devoured},
             {id: req.params.id}, 
             result => {
@@ -37,6 +43,16 @@ module.exports = (client) => {
                 }
             }
         );
+    });
+
+    router.post("/api/burger/:id", (req, res) => {
+        db.burger.create(
+            ["burger_name","devoured", "menu_id"],
+            [`'${ req.body.burger_name }'`, false, req.params.id], 
+            result => {
+                res.json({id: result.insertId})
+            }
+        ); 
     });
 
     return router;
