@@ -22,7 +22,6 @@ module.exports = (connection) => {
 
     insertOne: (table, whereToInsert, whatToInsert, table_id, cb) => {
       const queryString = `INSERT INTO ${ table } ("${ whereToInsert.join('", "')}") VALUES (${ whatToInsert.join(", ") }) RETURNING "${ table_id }"`;
-      console.log(queryString);
       connection.query(queryString, (err, result) => {
         if (err) throw err;
         cb(result);

@@ -1,6 +1,10 @@
 
 const cook = (event) => {
     fetch(`/api/burger/${ event.target.getAttribute("data-id") }`,
+        {
+            method:'POST',
+            headers: {'Content-type': 'Application /json'}
+        }
     );
 }
 

@@ -48,7 +48,8 @@ module.exports = (client) => {
     router.post("/api/burger/:id", (req, res) => {
         db.burger.create(
             ["burger_name","devoured", "menu_id"],
-            [`'${ req.body.burger_name }'`, false, req.params.id], 
+            [`'${ req.body.burger_name }'`, false, req.params.id],
+            "burger_id",
             result => {
                 res.json({id: result.insertId})
             }
