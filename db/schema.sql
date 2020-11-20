@@ -14,6 +14,7 @@ CREATE TABLE burgers (
 	burger_name VARCHAR(128) NOT NULL,
     devoured BOOLEAN,
 	menu_id INTEGER,
+	start_cooking TIMESTAMP DEFAULT NOW(),
 	CONSTRAINT fk_menu
 		FOREIGN KEY(menu_id)
 			REFERENCES menu(menu_id)

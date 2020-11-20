@@ -35,8 +35,8 @@ module.exports = (client) => {
 
     router.put("/api/burger/:id", (req, res) => {
         db.burger.update({
-            devoured: req.body.devoured},
-            {id: req.params.id}, 
+            devoured: true},
+            {burger_id: req.params.id}, 
             result => {
                 if (result.changedRoes == 0) {
                     return res.status(404).end();

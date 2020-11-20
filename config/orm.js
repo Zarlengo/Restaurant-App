@@ -39,7 +39,6 @@ module.exports = (connection) => {
       whereValue = whereObj[whereColumn];
       
       const queryString = `UPDATE ${ table } SET ${ setColumn } = ${ setValue } WHERE ${ whereColumn } = ${ whereValue }`;
-
       connection.query(queryString, (err, result) => {
           if (err) throw err;
           cb(result);
