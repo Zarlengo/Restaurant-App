@@ -8,6 +8,11 @@ var orm = require("../config/orm.js")(client);
           cb(res);
         });
       },
+      findBy: (col, id, cb) => {
+        orm.findBy("burgers", col, id, (res) => {
+          cb(res);
+        });
+      },
       // The variables cols and vals are arrays.
       create: (cols, vals, id, cb) => {
         orm.insertOne("burgers", cols, vals, id, (res) => {
@@ -26,8 +31,8 @@ var orm = require("../config/orm.js")(client);
           cb(res);
         });
       },
-      findById: (id, cb) => {
-        orm.findById("menu", "menu_id", id, (res) => {
+      findBy: (col, id, cb) => {
+        orm.findBy("menu", col, id, (res) => {
           cb(res);
         });
       }

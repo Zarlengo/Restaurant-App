@@ -12,3 +12,10 @@ INSERT INTO menu (burger_name, src, title) VALUES
 ('Guacamole Bacon Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
 ('Vegan Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
 ('Veggie Burger', 'assets/img/burger.png', 'Icons made by Freepik');
+
+-- Populate the menu table with popular burger names
+INSERT INTO burgers (burger_name, devoured, menu_id) VALUES 
+('Mushroom Burger', false, 1),
+('Steakhouse Burger', true, 4),
+('Ozersky Burger', false, 7),
+('Guacamole Bacon Burger', true, 9);

@@ -10,9 +10,8 @@ module.exports = (connection) => {
       
     },
     
-    findById: (tableInput, id_name, id_value, cb) => {
+    findBy: (tableInput, id_name, id_value, cb) => {
       const queryString = `SELECT * FROM ${ tableInput } WHERE ${ id_name } = ${ id_value }`;
-    
       connection.query(queryString, (err, result) => {
         if (err) throw err;
         cb(result);

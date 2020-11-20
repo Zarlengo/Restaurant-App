@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/assets/css/devoured.css">
+<aside>
+    {{#if this.length }}
+    <h2 class="div-title">Burgers devoured</h2>
+    <section class="devoured-list">
+        {{#each this}}
+            <div class="devoured-item">
+                <figure class="devoured-figure">
+                    <img class="devoured-img" src="{{this.src}}" alt="{{this.burger_name}}" title="{{this.title}}" id="{{this.menu_id}}">
+                    <figcaption class="devoured-caption">{{this.burger_name}}</figcaption>
+                </figure>
+            </div>
+        {{/each}}
+    </section> 
+    {{/if}}
+</aside>

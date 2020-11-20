@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/assets/css/cooking.css">
+<aside>
+    {{#if this.length }}
+    <h2 class="div-title">In the Kitchen</h2>
+    <section class="cooking-list">
+        {{#each this}}
+            <div class="cooking-item">
+                <button class="cooking-button" data-id="{{this.menu_id}}">Eat</button>
+                <figure class="cooking-figure">
+                    <img class="cooking-img" src="{{this.src}}" alt="{{this.burger_name}}" title="{{this.title}}" id="{{this.menu_id}}">
+                    <figcaption class="cooking-caption">{{this.burger_name}}</figcaption>
+                </figure>
+            </div>
+        {{/each}}
+    </section> 
+    {{/if}}
+</aside>
