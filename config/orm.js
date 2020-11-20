@@ -10,8 +10,12 @@ module.exports = (connection) => {
       
     },
     
-    findBy: (tableInput, id_name, id_value, cb) => {
-      const queryString = `SELECT * FROM ${ tableInput } WHERE ${ id_name } = ${ id_value }`;
+    findBy: (tableInput, id_name, id_value, left_join, cb) => {
+      let join_string = "";
+      if ( left_join ) {
+        join_string = "LEFT JOIN MENU ON MENU.menu_id = BURGERS.menu_id "
+      }
+      const queryString = `SELECT * FROM ${ tableInput } ${ join_string } WHERE ${ id_name } = ${ id_value }`;
       connection.query(queryString, (err, result) => {
         if (err) throw err;
         cb(result);

@@ -5,8 +5,8 @@ module.exports = (client) => {
     const db = require("../models/burger.js")(client);
 
     router.get("/", (_req, res) => {
-        db.burger.findBy("devoured", true, devoured_data => {
-            db.burger.findBy("devoured", false, burger_data => {
+        db.burger.findBy("devoured", true, true, devoured_data => {
+            db.burger.findBy("devoured", false, true, burger_data => {
                 db.menu.all(menu_data => {
                 // Delete placeholder for handlebars
                 menu_data.rows.shift();

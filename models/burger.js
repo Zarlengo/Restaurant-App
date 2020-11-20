@@ -8,8 +8,8 @@ var orm = require("../config/orm.js")(client);
           cb(res);
         });
       },
-      findBy: (col, id, cb) => {
-        orm.findBy("burgers", col, id, (res) => {
+      findBy: (col, id, join, cb) => {
+        orm.findBy("burgers", col, id, join, (res) => {
           cb(res);
         });
       },
@@ -31,8 +31,8 @@ var orm = require("../config/orm.js")(client);
           cb(res);
         });
       },
-      findBy: (col, id, cb) => {
-        orm.findBy("menu", col, id, (res) => {
+      findBy: (col, id,  join, cb) => {
+        orm.findBy("menu", col, id, join, (res) => {
           cb(res);
         });
       }
