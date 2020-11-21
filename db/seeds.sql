@@ -1,17 +1,17 @@
 -- Populate the menu table with popular burger names
 INSERT INTO menu (burger_name, src, title) VALUES 
 ('Placeholder Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Mushroom Burger', 'assets/img/mushroomBurger.jpg', 'Icons made by Freepik'),
-('BBQ Bacon Cheddar Burger', 'assets/img/baconCheddar.jpg', 'Icons made by Freepik'),
-('Breakfast Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Steakhouse Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Single Cheeseburger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Mott Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Ozersky Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Tavern Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Guacamole Bacon Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Vegan Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
-('Veggie Burger', 'assets/img/burger.png', 'Icons made by Freepik');
+('Mushroom Burger', 'assets/img/mushroomBurger.jpg', 'Mushroom Burger'),
+('BBQ Bacon Cheddar Burger', 'assets/img/baconCheddar.jpg', 'BBQ Bacon Cheddar Burger'),
+('Breakfast Burger', 'assets/img/breakfastBurger.jpg', 'Breakfast Burger'),
+('Steakhouse Burger', 'assets/img/steakhouseBurger.jpg', 'Steakhouse Burger'),
+('Single Cheeseburger', 'assets/img/cheeseburger.jpg', 'Cheeseburger'),
+('Mott Burger', 'assets/img/mottBurger.jpg', 'Mott Burger'),
+('Ozersky Burger', 'assets/img/ozerskyBurger.jpg', 'Ozarsky Burger'),
+('Tavern Burger', 'assets/img/tavernBurger.jpg', 'Tavern Burger'),
+('Guacamole Bacon Burger', 'assets/img/guacamoleBurger.jpg', 'Guacamole Bacon Burger'),
+('Vegan Burger', 'assets/img/veganBurger.jpg', 'Vegan Burger'),
+('Veggie Burger', 'assets/img/veggieBurger.jpg', 'Veggie Burger');
 
 -- Populate the menu table with popular burger names
 INSERT INTO burgers (burger_name, devoured, menu_id) VALUES 
