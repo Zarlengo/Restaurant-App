@@ -10,8 +10,6 @@ module.exports = (client) => {
                 db.menu.all(menu_data => {
                 // Delete placeholder for handlebars
                 menu_data.rows.shift();
-                console.log({menu_data: menu_data.rows});
-                console.log({burger_data: burger_data.rows});
                 res.render("index", {menu: menu_data.rows, burger: burger_data.rows, devoured: devoured_data.rows});
                 });
             });
@@ -25,7 +23,6 @@ module.exports = (client) => {
     });
 
     router.post("/api/burger", (req, res) => {
-        console.log(req.body);
         db.burger.create(
             ["burger_name","devoured", "menu_id"],
             [`'${ req.body.burger_name }'`, false, 1],
@@ -51,15 +48,17 @@ module.exports = (client) => {
     });
 
     router.post("/api/burger/:id", (req, res) => {
-        console.log({"req": req});
-        db.burger.create(
-            ["burger_name","devoured", "menu_id"],
-            [`'${ req.body.burger_name }'`, false, req.params.id],
-            "burger_id",
-            result => {
-                res.json({id: result.insertId})
-            }
-        ); 
+        db.menu.findBy("menu_id", req.params.id, false, (menu_data) => {
+            console.log(menu_data);
+            db.burger.create(
+                ["burger_name","devoured", "menu_id"],
+                [`'${ menu_data.rows[0].menu_name }'`, false, req.params.id],
+                "burger_id",
+                result => {
+                    res.json({id: result.insertId})
+                }
+            );
+        });
     });
 
     return router;
