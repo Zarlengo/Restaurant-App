@@ -6,7 +6,7 @@
 ## Description
 A node.js based Express and Postgres app to track a customer's order through the resturant. The client can order from the menu or create a custom burger.
 
-![Welcome](./Images/Hero.jpg)
+![Welcome](./images/Hero.jpg)
 
 ## Table of Contents
 
@@ -40,7 +40,7 @@ A node.js based Express and Postgres app to track a customer's order through the
 
 ## 2 Usage
 
-![Welcome](./Images/Hero.jpg)
+![Welcome](./images/Hero.jpg)
 
 * Menu Items
     * Choose from any item on the menu and order to prepare the meal
