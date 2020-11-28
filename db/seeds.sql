@@ -1,5 +1,5 @@
 -- Populate the menu table with popular burger names
-INSERT INTO menu (burger_name, src, title) VALUES 
+INSERT INTO menu (menu_name, src, title) VALUES 
 ('Placeholder Burger', 'assets/img/burger.png', 'Icons made by Freepik'),
 ('Mushroom Burger', 'assets/img/mushroomBurger.jpg', 'Mushroom Burger'),
 ('BBQ Bacon Cheddar Burger', 'assets/img/baconCheddar.jpg', 'BBQ Bacon Cheddar Burger'),
@@ -15,7 +15,7 @@ INSERT INTO menu (burger_name, src, title) VALUES
 
 -- Populate the menu table with popular burger names
 INSERT INTO burgers (burger_name, devoured, menu_id) VALUES 
-('Mushroom Burger', false, 1),
-('Steakhouse Burger', true, 4),
-('Ozersky Burger', false, 7),
-('Guacamole Bacon Burger', true, 9);
+('Mushroom Burger', false, 2),
+('Steakhouse Burger', true, 5),
+('Ozersky Burger', false, 8),
+('Guacamole Bacon Burger', true, 10);

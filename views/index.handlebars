@@ -2,9 +2,11 @@
 <div class="body-section">
     <div>
         {{> menu this.menu}}
-        <p>Order a custom burger</p>
-        <input placeholder="BURGER NAME"/>
-        <button>Order</button>
+        <form class="customForm">
+            <label for="custom-input">Order a custom burger</label><br>
+            <input type="text" id="custom-input" class="custom-input" placeholder="<BURGER NAME>"/>
+            <input type="submit" class="custom-button" value="Order" />
+        </form>
     </div>
     <div>
         {{> cooking this.burger}}
