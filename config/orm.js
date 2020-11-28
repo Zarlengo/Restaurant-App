@@ -9,9 +9,23 @@ module.exports = (connection) => {
       });
       
     },
+    
+    findBy: (tableInput, id_name, id_value, left_join, cb) => {
+      let join_string = "";
+      if ( left_join ) {
+        join_string = "LEFT JOIN MENU ON MENU.menu_id = BURGERS.menu_id "
+      }
+      const queryString = `SELECT * FROM ${ tableInput } ${ join_string } WHERE ${ id_name } = ${ id_value }`;
+      console.log(queryString);
+      connection.query(queryString, (err, result) => {
+        if (err) throw err;
+        cb(result);
+      });
+      
+    },
 
-    insertOne: (table, whereToInsert, whatToInsert, cb) => {
-      const queryString = `INSERT INTO ${ table } (${ whereToInsert }) VALUES (${ whatToInsert })`;
+    insertOne: (table, whereToInsert, whatToInsert, table_id, cb) => {
+      const queryString = `INSERT INTO ${ table } ("${ whereToInsert.join('", "')}") VALUES (${ whatToInsert.join(", ") }) RETURNING "${ table_id }"`;
       console.log(queryString);
       connection.query(queryString, (err, result) => {
         if (err) throw err;
@@ -27,7 +41,6 @@ module.exports = (connection) => {
       whereValue = whereObj[whereColumn];
       
       const queryString = `UPDATE ${ table } SET ${ setColumn } = ${ setValue } WHERE ${ whereColumn } = ${ whereValue }`;
-
       connection.query(queryString, (err, result) => {
           if (err) throw err;
           cb(result);

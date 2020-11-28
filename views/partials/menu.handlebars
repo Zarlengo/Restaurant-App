@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/assets/css/menu.css">
+<aside>
+    {{#if this.length }}
+    <h2 class="div-title">Menu Items</h2>
+    <section class="card-list">
+        {{#each this}}
+            <div class="card-item">
+                <button class="menu-button" data-id="{{this.menu_id}}">Order</button>
+                <figure class="card-figure">
+                    <img class="card-img" src="{{this.src}}" alt="{{this.menu_name}}" title="{{this.title}}" id="{{this.menu_id}}">
+                    <figcaption class="card-caption">{{this.menu_name}}</figcaption>
+                </figure>
+            </div>
+        {{/each}}
+    </section> 
+    {{/if}}
+</aside>

@@ -1,12 +1,17 @@
 <h1>Eat-Da-Burger</h1>
-<p>Enter a burger name</p>
-<div>
-    <table>
-        <tr>
-        <th>Cooking</th><th>Devoured</th>
-        </tr>
-        <tr>
-            <td>item 1</td><td>item 2</td>
-        </tr>
-    </table>
+<div class="body-section">
+    <div>
+        {{> menu this.menu}}
+        <form class="customForm">
+            <label for="custom-input">Order a custom burger</label><br>
+            <input type="text" id="custom-input" class="custom-input" placeholder="<BURGER NAME>"/>
+            <input type="submit" class="custom-button" value="Order" />
+        </form>
+    </div>
+    <div>
+        {{> cooking this.burger}}
+    </div>    
+    <div>
+        {{> devoured this.devoured}}
+    </div>
 </div>
