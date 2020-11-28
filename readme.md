@@ -36,6 +36,7 @@ A node.js based Express and Postgres app to track a customer's order through the
     ```
 
 5. Navigate to localhost:8080
+
     [Server listening on: http://localhost:8080](http://localhost:8080)
 
 ## 2 Usage
@@ -47,9 +48,11 @@ A node.js based Express and Postgres app to track a customer's order through the
     * Custom orders can be accomidated with entering in the description in the `Order a custom burger` input
 
 * Ready to Eat
+
     When you're ready to eat the burger, press the `Eat` button to consume it.
 
 * Burgers Devoured
+
     Consumed burgers reside here
 
 ## 3 License
